@@ -12,7 +12,8 @@ Follow these steps to run the project after cloning.
 ```bash
 git clone https://github.com/ChunMa007/Manhwa-App.git
 
-**🔧 Backend Setup (Django)**
+### 🔧 Backend Setup (Django)
 1. Optional: Set Execution Policy (Windows Only)
 If your system has restricted execution policies, run:
-![Screenshot 2025-06-24 002658](https://github.com/user-attachments/assets/7d3ca33b-9fed-4fff-96ad-5d80bbc21167)
+```bash
+set-executionpolicy -scope process -executionpolicy bypass
