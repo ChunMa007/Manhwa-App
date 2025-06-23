@@ -79,3 +79,32 @@ Manhwa-App/
   ###### React runs on http://localhost:5173 by default.
   ###### Django runs on http://localhost:8000 by default.
 
+---
+
+### 📄 Page Descriptions
+
+### 🏠 Homepage
+The homepage displays a list of all available manga. This page is publicly accessible, meaning both logged-in and guest users can browse and read manga. It serves as the entry point of the app, offering open access to manga content.
+![Homepage](screenshots/Screenshot%202025-06-24%20005010.png)
+
+### 🔐 Login Page
+Once users create an account, they can log in through this page. Upon successful login, the backend issues two tokens — an access token and a refresh token — using Django REST Framework's Simple JWT authentication system. These tokens are used to securely access user-restricted features throughout the app.
+![Login](screenshots/Screenshot%202025-06-24%20005240.png)
+
+### ⭐ Favorites Page
+Users can bookmark their favorite manga titles here. However, adding to favorites requires authentication. If a guest tries to add a favorite, they’ll be redirected to sign up or log in first.
+![Dashboard](screenshots/Screenshot%202025-06-24%20005023.png)
+
+### ℹ️ Info Page
+When a manga is selected on the homepage, users are taken to the Info Page. This page displays detailed information about the manga, including its title, description, and chapter list. A button labeled "Add to Favorites" allows logged-in users to bookmark the manga directly from this page.
+![Details](screenshots/Screenshot%202025-06-24%20005153.png)
+
+### 📖 Read Page
+This is the reading interface where users can view manga chapters. It includes Next and Previous buttons to navigate between chapter pages, providing a smooth reading experience.
+![Bookmarks](screenshots/Screenshot%202025-06-24%20005208.png)
+
+### ⚙️ Settings Page
+The Settings Page displays the user's account information. Here, users can update their profile details and change their password. When changes are submitted, a request is sent to the backend to securely update their credentials.
+![Settings](screenshots/Screenshot%202025-06-24%20005110.png)
+
+
