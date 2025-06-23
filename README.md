@@ -1,5 +1,19 @@
 # Manhwa App
-A full-stack Manhwa bookmarking application with Django as the backend and React (Vite) as the frontend.
+A full-stack Manhwa bookmarking application built with React on the frontend and Django on the backend.
+
+This app integrates the MangaDex API to retrieve and display manga content, allowing users to browse and read chapters directly. It also uses a custom API built with Django REST Framework to handle user-related features such as:
+
+* Signing up and logging in
+
+* Adding and managing favorites
+
+* Editing account information
+
+* Changing passwords
+
+To secure these operations, the app implements Simple JWT authentication, ensuring that only authenticated users can perform actions like favoriting manga or modifying their profile, and that each request is verified to come from the currently logged-in user.
+
+
 
 ---
 
