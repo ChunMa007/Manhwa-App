@@ -1,0 +1,10 @@
+.chapter {
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: 	#32393d;
+}
+
+.chapter:hover {
+    background-color: #3e464c;
+    cursor: pointer;
+}

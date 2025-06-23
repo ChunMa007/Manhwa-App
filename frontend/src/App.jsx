@@ -4,18 +4,29 @@ import './App.css'
 import {Routes, Route} from 'react-router-dom'
 import Home from './Pages/Home'
 import MangaPage from './Pages/MangaPage'
+import MangaReadPage from './Pages/MangaReadPage'
+import Login from './Pages/Login'
+import Signup from './Pages/Signup'
+import Favorites from './Pages/Favorites'
+import Settings from './Pages/settings'
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("")
 
   return (
     <div>
-      <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
+      <Navbar setSearchQuery={setSearchQuery}/>
       <main className='main-content'>
         <Routes>
-          <Route path='/' element={<Home searchQuery={searchQuery}/>}/>
-          <Route path='/' element={<Home searchQuery={searchQuery}/>}/>
-          <Route path='/series/:title/:id' element={<MangaPage/>}/>
+          <Route path='/series/page/:pageNumber/name/:mangaName' element={<Home searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>}/>
+          <Route path='/series/:title/chapter/:chapter' element={<MangaReadPage/>}/>
+          <Route path='/series/:title/' element={<MangaPage/>}/>
+
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/signup' element={<Signup/>}/>
+          <Route path='/' element={<Home searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>}/>\
+          <Route path='/favorites' element={<Favorites/>}/>
+          <Route path='/settings' element={<Settings/>}/>
         </Routes>
       </main>
     </div>

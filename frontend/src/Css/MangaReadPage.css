@@ -1,0 +1,38 @@
+.manga-read-page-container {
+    width: 1000px;
+    margin: auto;
+}
+
+.manga-read-header {
+    padding: 1rem 0;
+}
+
+.manga-read-header h1 {
+    text-align: center;
+}
+
+.nextprev-button {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 8px 0;
+}
+
+.nextprev-button button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.manga-read-body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.manga-read-body img {
+    max-width: 100%;
+    height: auto;
+}

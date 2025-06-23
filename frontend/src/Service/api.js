@@ -1,8 +1,8 @@
 const BASE_API_URL = 'http://127.0.0.1:8000/api/'
 
-export const searchManga = async (query) => {
+export const searchManga = async (query, limit, page) => {
     try {
-        const response = await fetch(`${BASE_API_URL}search/?q=${encodeURIComponent(query)}`)
+        const response = await fetch(`${BASE_API_URL}search/${encodeURIComponent(query)}/?limit=${limit}&offset=${page * limit}`)
         if(!response.ok){
             throw new Error("Failed to fetch manga")
         }
@@ -13,9 +13,9 @@ export const searchManga = async (query) => {
     }
 }
 
-export const getPopularMangas = async () => {
+export const getMangas = async (limit, page) => {
     try {
-        const response = await fetch(`${BASE_API_URL}popular-mangas`)
+        const response = await fetch(`${BASE_API_URL}popular-mangas?limit=${limit}&offset=${page * limit}`)
         if (!response.ok) {
             throw new Error("Failed to fetch manga")
         }
@@ -45,6 +45,17 @@ export const getMangaPage = async (mangaId) => {
         return await response.json()
     } catch(err) {
         console.error("Error: while fetching manga")
+        throw err
+    }
+}
+
+export const getMangaChapterImage = async (chapterId) => {
+    try {
+        const response = await fetch(`${BASE_API_URL}chapter/${chapterId}`)
+        if(!response.ok) throw new Error("Failed to fetch chapter images")
+        return await response.json()
+    } catch(err) {
+        console.error("Error: while fetching chapter images")
         throw err
     }
 }

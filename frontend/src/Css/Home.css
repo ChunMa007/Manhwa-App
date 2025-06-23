@@ -1,14 +1,39 @@
+.manga-container {
+  width: 1000px;
+  margin: auto;
+  padding: 24px 0px;
+}
+
 .manga-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   row-gap: 1rem;
   column-gap: 1rem;
-  padding: 1rem 20rem;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* .manga-card {
-  
-} */
+.button-container{
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.button-container button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.button-container label{
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  color: black;
+}
 

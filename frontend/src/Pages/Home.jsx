@@ -1,54 +1,68 @@
 import {useState, useEffect} from 'react'
 import MangaCard from '../Component/MangaCard'
-import { getPopularMangas } from '../Service/api'
 import { useNavigate } from 'react-router-dom'
+import NextPrevPage from '../Component/NextPrevPage'
 import  '../Css/Home.css'
+import { getMangas, searchManga } from '../Service/api'
 
 
 export default function Home({searchQuery}) {
     const [mangas, setMangas] = useState([])
-    const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(true)
+    const [page, setPage] = useState(1)
+    const [totalResult, setTotalResult] = useState(0)
+    const limit = 30
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
-    
-    function handleMangaClick(manga){
-        const title = manga.attributes?.title?.en || manga.attributes?.title['ja-ro']
-        navigate(`/series/${encodeURIComponent(title)}/${manga.id}`, { state: {manga} })
-    }
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await getPopularMangas()
+    const fetchMangas = async () => {
+        setLoading(true)
+        try {
+            if(searchQuery){
+                const response = await searchManga(searchQuery, limit, page - 1)
                 setMangas(response.data)
-            } catch(err) {
-                setError(err.message)
-            } finally {
-                setLoading(false)
+                setTotalResult(response.total)
+                navigate(`/series/page/${page}/name/${encodeURIComponent(searchQuery)}`)
+            } else {
+                const response = await getMangas(limit, page - 1)
+                setMangas(response.data)
+                setTotalResult(response.total)
             }
+        } catch(err) {
+            console.error("Error: fetching mangas")
+        } finally {
+            setLoading(false)
         }
-    
-        fetchData()
-    }, [])
-    
+    }
+    fetchMangas()
+    }, [page, searchQuery])
+
     return (
-        <div className='manga-grid'>
-            {mangas.map(manga => {
-                const title = manga.attributes?.title?.en || ""
-                return (
-                    title.toLowerCase().includes(searchQuery.toLowerCase()) && (
-                        <div
-                            className='manga-card'
-                            key={manga.id}
-                            onClick={() => handleMangaClick(manga)}
-                            style={{cursor: 'pointer'}}
-                        >
-                            
-                            <MangaCard key={manga.id} manga={manga}/>
-                        </div>
-                    )
-                )
-            })}
-        </div>
+        <>
+            {loading ? <p>Loading...</p> : (
+            <div className='manga-container'>  
+                <div className='manga-grid'>
+                    {mangas.map(manga => {
+                        return (
+                            <div
+                                className='manga-card'
+                                key={manga.id}
+                                onClick={() => navigate(`/series/${encodeURIComponent(manga.title)}`, { state: {manga} })}
+                                style={{ cursor: 'pointer' }}
+                            >
+                                <MangaCard manga={manga}/>
+                            </div>
+                        )
+                    })}
+                </div>
+
+                <div className='button-container'>
+                    <button onClick={() => setPage(prev => Math.max(prev - 1, 0))} disabled={page===1}>&lt; Prev</button>
+                    <label>Page {page}</label>
+                    <button onClick={() => setPage(prev => (prev + 1))} disabled={totalResult < limit}>Next &gt;</button>
+                </div>
+            </div>  
+            )}   
+        </>   
     )
 }

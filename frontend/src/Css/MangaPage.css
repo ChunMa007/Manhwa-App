@@ -1,5 +1,25 @@
 .manga-page-container {
-    padding: 2rem 20rem;
-    width: 100%;
+    padding: 16px 0px;
+    width: 1000px;
+    margin: auto;
 }
 
+.chapter-header {
+    background-color: 	#bdbdbd;
+    margin-top: 24px;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid black;
+}
+
+.chapter-container {
+    background-color: 	#bdbdbd;
+    padding: 1rem 2rem;
+}
+
+.chapter-container .chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow-y: scroll;
+    height: 300px;
+}

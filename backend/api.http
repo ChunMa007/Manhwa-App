@@ -14,7 +14,7 @@ Content-Type: application/json
 
 POST http://localhost:8000/api/favorites/ HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODM4NTIyLCJpYXQiOjE3NDk4MzgyMjIsImp0aSI6IjNkZWJlOTE1NWI1NzQ4ZjRhMjAyYmI2YTQ1YjJhMjRlIiwidXNlcl9pZCI6MX0.4MOuTKPGr19UkskVfLSRJFb8ruOy8tuXpMqDtdTs3OI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5OTgyOTkxLCJpYXQiOjE3NDk5ODIzOTEsImp0aSI6IjI3ZTZlM2JlODAyNTQ4YjhhZWQ2OTNmNWFhYTNlODgzIiwidXNlcl9pZCI6MX0.3HNWmkgzRjDECiXsWMkXk_tZEEKx3Jb-c8GoSAzba4M
 
 {
     "id": "32d76d19-8a05-4db0-9fc2-e0b0648fe9d0",
@@ -25,10 +25,58 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
 ###
 GET http://localhost:8000/api/user-favorites/ HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODg2MjA2LCJpYXQiOjE3NDk4ODU2MDYsImp0aSI6IjQwMTgwMjEyZWVhMTRlYTM5OTNmYTliODM4MjFkMGZjIiwidXNlcl9pZCI6MX0.Et3gllXG5tiM9g5Yjw67Dmnhhs449Xm352OM0PnGx9w
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNTQ3NDc2LCJpYXQiOjE3NTA1NDcxNzYsImp0aSI6IjQ2Y2I4NDQwZjgxMjQ3YTQ4ZjEwNTBiZDk4YTUwZjM1IiwidXNlcl9pZCI6MX0.ozj4i_v19Hor8Li9sP_jybxb_vL5zjk_9EUY_3a_wJg
+
+DELETE http://localhost:8000/api/favorites/4/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5OTgyOTkxLCJpYXQiOjE3NDk5ODIzOTEsImp0aSI6IjI3ZTZlM2JlODAyNTQ4YjhhZWQ2OTNmNWFhYTNlODgzIiwidXNlcl9pZCI6MX0.3HNWmkgzRjDECiXsWMkXk_tZEEKx3Jb-c8GoSAzba4M
+
+####
+
+POST http://localhost:8000/api/login/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin123"
+}
+
 ###
 
-DELETE http://localhost:8000/api/favorites/2/ HTTP/1.1
+GET http://localhost:8000/api/user/ HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODg2MjA2LCJpYXQiOjE3NDk4ODU2MDYsImp0aSI6IjQwMTgwMjEyZWVhMTRlYTM5OTNmYTliODM4MjFkMGZjIiwidXNlcl9pZCI6MX0.Et3gllXG5tiM9g5Yjw67Dmnhhs449Xm352OM0PnGx9w
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNjEwOTU0LCJpYXQiOjE3NTA2MTA2NTQsImp0aSI6IjM0MGY1NmQ4NzZjNTQxM2M5OTUxZmY2NjFmOGJjODRjIiwidXNlcl9pZCI6MX0._n1rVuHWJFnRujAoXTBNDFlRf8i8NJZl24P6MfcaeDA
 
+###
+
+PATCH http://localhost:8000/api/user/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNjA3NjczLCJpYXQiOjE3NTA2MDczNzMsImp0aSI6ImEzMGY0NDdiNjJmNTQ2MzhiMTk0MzU5NDA0ZmRmMTUyIiwidXNlcl9pZCI6Nn0.mh5HNcaorc9ryfPuKE9oiimYftTSMRnf1xDaWaEQk4Q
+
+{
+    "first_name": "user"
+}
+
+###
+
+POST http://localhost:8000/api/user-favorites/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNTQzOTQyLCJpYXQiOjE3NTA1NDM2NDIsImp0aSI6ImVlOWZhNDJiZjg0OTQxMzk4NzAyZGQxYmVjNjkzYTlhIiwidXNlcl9pZCI6MX0.ldAMocEUORx7kQvgRrz2UX45BBqndDXBV4BY2qXowH4
+
+{
+    "id": "1",
+    "title": "Hajime no Ippo",
+    "status": "Ongoing",
+    "cover_art": "image"
+}
+
+###
+
+GET http://localhost:8000/api/user-favorites/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNTQ3MjQyLCJpYXQiOjE3NTA1NDY5NDIsImp0aSI6ImM4ZjVlMTU3ZWE2ZTRjMDliZTNiZDBiZDhkMTNhZDViIiwidXNlcl9pZCI6MX0.a2ojcY4d4NtX5tPvuLoD0RyUA3a08_XIKDIjRhzZRPY
+###
+
+DELETE http://localhost:8000/api/user-favorites/1/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNTQzOTQyLCJpYXQiOjE3NTA1NDM2NDIsImp0aSI6ImVlOWZhNDJiZjg0OTQxMzk4NzAyZGQxYmVjNjkzYTlhIiwidXNlcl9pZCI6MX0.ldAMocEUORx7kQvgRrz2UX45BBqndDXBV4BY2qXowH4
