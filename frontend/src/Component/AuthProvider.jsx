@@ -24,6 +24,8 @@ function AuthProvider({ children }) {
 
             const data = await response.json()
 
+            
+
             if(response.ok) {
                 localStorage.setItem(ACCESS_TOKEN, data.access)
                 setIsAuthenticated(true)

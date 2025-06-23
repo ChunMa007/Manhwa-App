@@ -37,15 +37,26 @@ POST http://localhost:8000/api/login/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "username": "admin",
+    "username": "admin1",
     "password": "admin123"
+}
+
+###
+POST http://localhost:8000/api/user/change-password/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNjMwODQzLCJpYXQiOjE3NTA2MzA1NDMsImp0aSI6ImU4MDU4N2QwNzY0ZTRkODNiMDFlNTcyN2E5NjcyYTRlIiwidXNlcl9pZCI6OH0.z9NKV4Bx38a6JAwzof25thpkQY_DokTtk6DF82tAT-o
+
+{
+    "old_password": "adminasd",
+    "new_password": "123213",
+    "confirm_new_password": "ad2425ascminasd"
 }
 
 ###
 
 GET http://localhost:8000/api/user/ HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNjEwOTU0LCJpYXQiOjE3NTA2MTA2NTQsImp0aSI6IjM0MGY1NmQ4NzZjNTQxM2M5OTUxZmY2NjFmOGJjODRjIiwidXNlcl9pZCI6MX0._n1rVuHWJFnRujAoXTBNDFlRf8i8NJZl24P6MfcaeDA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNjMxODE1LCJpYXQiOjE3NTA2MzE1MTUsImp0aSI6IjQ1YWRiZDUzMDIxYzRlYjM5MjdmZjA3NzljMTEyZjc3IiwidXNlcl9pZCI6OH0.ZgKEE3be_U-AUPPB_FnfqDG8bP-lxYeYoBQkLOHlGws
 
 ###
 
